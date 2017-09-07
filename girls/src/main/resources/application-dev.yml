@@ -1,0 +1,6 @@
+server:
+  port: 8080
+girl:
+  name: yyq
+  age: 25
+content: name="${girl.name}", age="${girl.age}"
