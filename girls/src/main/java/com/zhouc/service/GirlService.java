@@ -1,4 +1,6 @@
-package com.zhouc;
+package com.zhouc.service;
+
+import com.zhouc.dto.Girl;
 
 import java.util.List;
 
@@ -9,7 +11,7 @@ public interface GirlService {
 
     public List<Girl> findAll();
 
-    public Girl addOne(Girl girl);
+    public Girl addOne(Girl girl) throws Exception;
 
     public List<Girl> findByNameAndAge(String name, Integer age);
 

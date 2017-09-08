@@ -1,4 +1,4 @@
-package com.zhouc;
+package com.zhouc.dto;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 /**
  * Created by Administrator on 2017/9/7.
@@ -19,6 +21,8 @@ public class Girl {
     @GeneratedValue
     private Integer id;
     private String name;
+    @Min(value = 16, message = "年龄不得低于16岁")
+    @Max(value = 59, message = "年龄不得高于59岁")
     private Integer age;
 
     public Integer getId() {
@@ -43,5 +47,14 @@ public class Girl {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Girl{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                '}';
     }
 }

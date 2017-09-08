@@ -1,5 +1,10 @@
-package com.zhouc;
+package com.zhouc.service.impl;
 
+import com.zhouc.dto.Girl;
+import com.zhouc.enums.ResultEnum;
+import com.zhouc.exception.GirlException;
+import com.zhouc.repository.GirlRepository;
+import com.zhouc.service.GirlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,7 +26,14 @@ public class GirlServiceImpl implements GirlService {
     }
 
     @Override
-    public Girl addOne(Girl girl) {
+    public Girl addOne(Girl girl) throws Exception{
+        Integer age = girl.getAge();
+        if (age < 20) {
+            throw new GirlException(ResultEnum.GIRL_AGE_SMALL_EXCEPTION);
+        }
+        if (age > 45) {
+            throw  new GirlException(ResultEnum.GIRL_AGE_LARGE_EXCEPTION);
+        }
         return girlRepository.save(girl);
     }
 

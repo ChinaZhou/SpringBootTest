@@ -1,5 +1,6 @@
-package com.zhouc;
+package com.zhouc.repository;
 
+import com.zhouc.dto.Girl;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
