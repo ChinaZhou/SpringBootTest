@@ -11,3 +11,6 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+mybatis:
+  type-aliases-package: com.zhouc.dto
+  mapper-locations: classpath:mapper/*.xml
